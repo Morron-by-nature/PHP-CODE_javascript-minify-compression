@@ -1,7 +1,8 @@
 java-minify
 ===========
 
-//Javascript minify script simple code!!
+//written in PHP verry simple speedy code to compress/minify javascript for websites
+
 <?PHP
 //START Remove comments.
 $buffer = str_replace('/// ', '///', $buffer);		
