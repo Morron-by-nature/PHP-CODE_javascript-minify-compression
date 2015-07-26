@@ -1,11 +1,11 @@
-
     $buffer = preg_replace("/(\/\*\*\/)(\/\/(?!([^\n\r]*?\*\/)).*)/", "$1", $buffer);
     $buffer = preg_replace("/\\\\n/", "VQerT", $buffer);
-    $buffer = preg_replace("/\\\\r/", "ZQerT", $buffer);				
+    $buffer = preg_replace("/\\\\r/", "ZQerT", $buffer);
+    //	$buffer = preg_replace("/(\/\*@)([^\n\r]*?)(@\*\/)/", "YUTTy$2ZUTTx", $buffer);				
     do {$buffer = preg_replace("/(http(s)?\:)([^\r\n]*?)(\/\/)/", "$1$3qDdXX", $buffer, 1, $count);} while ($count); 
     ////---------------------------------------------------------------------------------------------------------
     // Remove all extra new lines after [ and \
-    $buffer = preg_replace("/(\*|[\r\n]|\'|\"|\,|\+|\{|;|\(|\)|\[|\]|\{|\}|\?|[^p|s]:|\&|\%|([^\\\\])[a-m-o-u-s-zA-Z]|\||-|=|[0-9])(\s*)(?!([^=\\\\\&\/\"\'\^\*:]))(\/)(\/)+(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";))))([^\n\r]*)([^;\"\'\{\(\}\,]\s*[\\\\\[])(?=([\r\n]+))/", "$1$2$3", $buffer);
+    $buffer = preg_replace("/([^\*])(\*|[\r\n]|\'|\"|\,|\+|\{|;|\(|\)|\[|\]|\{|\}|\?|[^p|s]:|\&|\%|([^\\\\])[a-m-o-u-s-zA-Z]|\||-|=|[0-9])(\s*)(?!([^=\\\\\&\/\"\'\^\*:]))(\/)(\/)+(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";))))([^\n\r]*)([^;\"\'\{\(\}\,]\s*[\\\\\[])(?=([\r\n]+))/", "$1$2$3$4", $buffer);
     // slash star followed by all except */ and star slash */ remove add start document!
     $buffer = preg_replace("/(^^\/\*)[\s\S]*?(\*\/)/", "\n \n", $buffer); 
 
@@ -23,7 +23,8 @@
     $buffer = preg_replace("/(\,\s*)(\*\/\*)(\s*[\}\"\'\;\)])/", "$1RDdPK$3", $buffer); // , */* '
     $buffer = preg_replace('/(\n|\r|\+|\&|\=|\|\||\(|[^\)]\:[^\=\,\/\$\\\\\<]|\(|return(?!(\/[a-zA-Z]+))|\!|\,)(?!(\s*\/\/|\n))(\s*\/)([^\]\)\}\*\;\)\,gi\.]\s*)([^\/\n]*?)(\*\/)/', '$1$4$5$6ODdPK', $buffer); 
     //// (slash r) (slash n) protect if followed by " + and new line
-    $buffer = preg_replace("/[\/][\/]+([\\\\r]+[\\\\n]+[\"]\s*[\+])/", "*/WQerT", $buffer);
+    $buffer = preg_replace("/[\/][\/]+(ZQerTVQerT\s*[\"]\s*[\+])/", "WQerT", $buffer);
+    $buffer = preg_replace("/[\/][\/]+(\*\/ZQerTVQerT\s*[\"]\s*[\+])/", "YQerT", $buffer);
     // Html Text protection!
     $buffer = preg_replace("/([\r\n]\s*\/\/)[^\r\n]*?\/\*(?=(\/))[^\r\n]*?([\r\n])/", "$1 */$3", $buffer);
     $buffer = preg_replace("/([\)]|[^\/|\\\\|\"])(\/\*)(?=([^\r\n]*?[\\\\][rn]([\\\\][nr])?\s*\"\s*\+\s*(\n|\r)?\s*\"))/", "$1pDdYX", $buffer);
@@ -42,18 +43,21 @@
     // removes /* ... followed by */ repeat even pairs till new line!
     $buffer = preg_replace("/(\/\*[\r\n]\s*)(?!([^\/<>;:%~`#@&-_=,\.\$\^\{\[\(\|\)\*\+\?\'\"\a-zA-Z0-9]))(((\/\*)[^\r\n]*?(\*\/)?[^\r\n]*?(\/\*)[^\r\n]*?(\*\/))*((\/\*)[^\r\n]*?(\*\/)))+(?!([^\r\n]*?(\*\/|\/\*)))[^\r\n]*?[\r\n]/", "\n ", $buffer);
     ////---------------------------------------------------------------------------------------------------------
+
+
+
     // (Mark) Regex Find all "  Mark with = AwTc  and  CwRc // special cahacers are:  . \ + * ? ^ $ [ ] ( ) { } < > = ! | : " '
-    $buffer = preg_replace("/(?!([\r\n]))(\+|\?|&|\=|\|\||\(|\!|,|return(?!(\/[a-zA-Z]+))|[^\)]\:)(?!(\s*\/\/|\n|\/\*[^\r\n\*]*?\*\/))(\s*\/([\^]?))(?!([\r\n\*\/]|[\*]))(?!(\<\!\-\-))(([^\]\)\}\*;,g&\.\"\']?\s*)(?=([\]\)\}\*;,g&\.\/\"\']))?)((.*)(([\w\W])([\*]?\/\s*)(?=(\]))|([\w\W])([\*]?\/\s*)(?=(\}))|([^\\\\])([\*]?\/\s*)(?=(\)))|([\w\W])([\*]?\/\s*)(?=([i][g]?[\W]))|([\w\W])([\*]?\/\s*)(?=([g][i]?[\W]))|([\w\W])([\*]?\/\s*)(?=(\,))|([^\\\\]|[\/])([\*]?\/\s*)(?=(;))|([\w\W])([\*]?\/\:\s)(?!([@\[\)\(\}\{\.,#%\+-\=`~\*&\^;\:\'\"]))|([^\\\\])([\*]?\/\s*)(?=(\.[^\/]))|([^\\\\])([\*]?\/\s*)(?=([\r\n]\s*[;\.,\)\}\]]\s*[^\/]|[\r\n]\s*([i][g]?[\W])|[\r\n]\s*([g][i]?[\W]))))|([^\\\\])([\*]?\/\s*)(?=([;\.,\)\}\]]\s*[^\/]|([i][g]?[\W])|([g][i]?[\W]))))/", "$2$3$5AwTc$7$8$10$13$15$18$21$24$27$30$33$36$39$42$47CwRc$16$19$22$25$28$31$34$37$40$43$48", $buffer);
+    $buffer = preg_replace("/(?!([\r\n]))(\+|\?|&|\=\s*[\[]?|\|\||\(|\!|,|return(?!(\/[a-zA-Z]+))|\:)(?!(\s*\/\/|\n|\/\*[^\r\n\*]*?\*\/))(\s*\/([\^]?))(?!([\^\r\n\*\/]|[\*]))(?!(\<\!\-\-))(([^\]\)\}\*;,g&\.\"\']?\s*)(?=([\]\)\}\*;,g&\.\/\"\']))?)((.*)(([\w\W])(\/\s*)(?=(\]))|([\w\W])(\/\s*)(?=(\}))|([^\\\\])(\/\s*)(?=(\)))|([\w\W])(\/\s*)(?=([i][g]?[\W]))|([\w\W])(\/\s*)(?=([g][i]?[\W]))|([^\*])(\/\s*)(?=(\,))|([^\\\\]|[\/])(\/\s*)(?=(;))|([\w\W])(\/\:\s)(?!([@\[\)\(\}\{\.,#%\+-\=`~\*&\^;\:\'\"]))|([^\\\\])(\/\s*)(?=(\.[^\/]))|([^\\\\])(\/\s*)(?=([\r\n]\s*[;\.,\)\}\]]\s*[^\/]|[\r\n]\s*([i][g]?[\W])|[\r\n]\s*([g][i]?[\W]))))|([^\\\\])(\/\s*)(?=([;\.,\)\}\]]\s*[^\/]|([i][g]?[\W])|([g][i]?[\W]))))/", "$2$3$5AwTc$7$8$10$13$15$18$21$24$27$30$33$36$39$42$47CwRc$16$19$22$25$28$31$34$37$40$43$48", $buffer);
+
+
 	
-    ////---------------------------------------------------------------------------------------------------------
-
-
     // Remove all extra new lines after [ and \
-    $buffer = preg_replace("/([^;\"\'\{\(\}\,]\s*[\\\\\[]\s?)\s*([\r\n]+)/", "$1", $buffer); 
+    $buffer = preg_replace("/([^;\"\'\{\(\}\,\/]\s*[^\/][\\\\\[]\s?)\s*([\r\n]+)/", "$1", $buffer); 
 	$buffer = preg_replace("/([\|\[])\s*(\]\|)/", "$1$2", $buffer);
+
 	
 	
-	  // (star slash) or (slash star) 1 sentence! Protect! With pDdYX and ODdPK
+    // (star slash) or (slash star) 1 sentence! Protect! With pDdYX and ODdPK
     do {$buffer = preg_replace('/(AwTc)([^\r\n]*?)(\/)(\*)(?=([^\r\n]*?CwRc))/', '$1$2pDdYX', $buffer, 1, $count);} while ($count);
     do {$buffer = preg_replace('/(AwTc)([^\r\n]*?)(\*)(\/)(?=([^\r\n]*?CwRc))/', '$1$2ODdPK', $buffer, 1, $count);} while ($count);
     // (slash slash) 1 sentence! Protect with: qDdXX
@@ -113,7 +117,7 @@
     do {$buffer = preg_replace("/(\=|\()(\s*\')([^\r\n\'\"]*?[\"][^\r\n\'\"]*?)(\/)(\/)([^\r\n\'\"]*?[\"])(\s*\"[^\r\n\'\"]*?)(\/\/|qDdXX)?([^\r\n\'\"]*?[\"][^\r\n\'\"]*?[\'])(?!(\'\)|\s*[\)]?\s*\+|\'))/", "$1$2$3qDdXX$6$7qDdXX$9$10", $buffer, 1, $count);} while ($count); 
     //---------------------------------------------------------------------------------------------------------
     // (slash slash) Remove all also , or + not followed by */ and newline
-    $buffer = preg_replace("/(\*|[\r\n]|[^\\\\]\'|[^\\\\]\"|\,|\+|\{|;|\(|\)|\[|\]|\{|\}|\?|[^p|s]:|\&|\%|([^\\\\])[a-m-o-u-s-zA-Z]|\||-|=|[0-9])(\s*)(?!([^=\\\\\&\/\"\'\^\*:]))(\/)(\/)+(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";)))).*/", "$1", $buffer);
+    $buffer = preg_replace("/([^\*])(\*|[\r\n]|[^\\\\]\'|[^\\\\]\"|\,|\+|\{|;|\(|\)|\[|\]|\{|\}|\?|[^p|s]:|\&|\%|([^\\\\])[a-m-o-u-s-zA-Z]|\||-|=|[0-9])(\s*)(?!([^=\\\\\&\/\"\'\^\*:]))(\/)(\/)+(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";)))).*/", "$1$2", $buffer);
     // (slash slash star slash) Remove everhing behinde it not followed by */ or new line
     $buffer = preg_replace("/(\/\/\*\/)(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";)))).*/", "", $buffer);
     // Remove almost all star comments except colon/**/
@@ -144,9 +148,11 @@
     $buffer = preg_replace("/ODdPK/", "*/", $buffer);   // Restore 
     $buffer = preg_replace("/RDdPK/", "*/*", $buffer);   // Restore 
     $buffer = preg_replace("/TDdXX/", "//*", $buffer);   // Restore */
-    $buffer = preg_replace('/\*\/WQerT/', '\\\\r\\\\n" +', $buffer);   // Restore \r\n" + 
+    $buffer = preg_replace('/WQerT/', '\\\\r\\\\n" +', $buffer);   // Restore \r\n" + 
+    $buffer = preg_replace('/YQerT/', '//*/\\\\r\\\\n" +', $buffer);   // Restore \r\n" + 
     $buffer = preg_replace('/VQerT/', '\\\\n', $buffer);   // Restore \n" 
-    $buffer = preg_replace('/ZQerT/', '\\\\r', $buffer);   // Restore \n" 
+    $buffer = preg_replace('/ZQerT/', '\\\\r', $buffer);   // Restore \n"
+	    $buffer = preg_replace('/LDdXX\//', '\/\/', $buffer);   // Restore \n"  
     ////---------------------------------------------------------------------------------------------------------
     ////---------------------------------------------------------------------------------------------------------
     //// Remove all markings!
@@ -179,6 +185,7 @@
     //Remove all after ; slah slah+
     $buffer = preg_replace("/([^\n\r;]*?[;]\s*)(\/\/[^\r\n](?!([^\n\r]*?\"\s*;))[^\r\n]*?)[\n\r]/", "$1", $buffer); 
 	$buffer = preg_replace('/\s*(\*\/)\s+/', "$1", $buffer);
+
     ////---------------------------------------------------------------------------------------------------------
     //END Remove comments.
     //START Remove all whitespaces
