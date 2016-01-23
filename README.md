@@ -1,7 +1,7 @@
     //---------------------------------------------------------------------------------------------------------	
-    //These are 115 lines off code that work together also works with mootools and Joomla and drupal and other cms websites. 
+    //These are 112 lines off code that work together also works with mootools and Joomla and drupal and other cms websites. 
     //Tested it on 800.000 lines of code and comments. works fine. 
-    //This one selects multiple parenthetical like ( abc(/*nn*/('/*xvx*/'))"// testing line") and protect them between colons as non comments.
+    //This one selects multiple parenthetical like ( abc(/*nn*/('/*xvx*/'))"// testing line") and protect them as non comments.
     //16-01-2016..! This is the code without the comments in it.!!!!    
     //----------------------------------------------------------------//-----------------------------------------
     $string = preg_replace("/(\*\/\s*)\/\/(?!(\*\/|[^\r\n]*?[\\\\n\\\\r]+\s*\"\s*\+|[^\r\n]*?[\\\\n\\\\r]+\s*\'\s*\+))[^\n\r\;]*?[^\;]\s*[\n\r]/", "$1\n", $string);
@@ -13,10 +13,6 @@
     $string = preg_replace("/(\;\s*|\,\s*|\{\s*|\}\s*|\+\s*|\?\s*|[\n\r]\s*)((?!([\'\"]))\/\*)(?!(\*\/))[\s\S]*?(\*\/)/", "$1\n", $string);
     do {$string = preg_replace('/([^\/\"\'\*a-zA-Z0-9\>])\/\*(?!(\*\/))[^\n\r@]*?\*\/(?=([\/\"\'\\\\\*a-zA-Z0-9\>\s=\)\(\,:;\.\}\{\|\]\[]))/', "$1", $string, 1, $count);} while ($count); 
     $string = preg_replace("/([\;\n\r]\s*)\/\/.*/", "$1\n", $string);	
-    $string = preg_replace("/(\/\*)(\\\\n)/", "pDdYXAQerT", $string);
-    $string = preg_replace("/(\*\/)(\\\\n)/", "ODdPKAQerT", $string);
-    $string = preg_replace("/(\/\*)(\\\\r)/", "pDdYXBQerT", $string);
-    $string = preg_replace("/(\*\/)(\\\\r)/", "ODdPKBQerT", $string);
     $string = preg_replace("/(\/\s\/)([g][\W])/", "ZUQQ$2", $string);
     $string = preg_replace("/\\\\n/", "AQerT", $string);
     $string = preg_replace("/\\\\r/", "BQerT", $string);	
@@ -80,6 +76,7 @@
     $string = preg_replace("/(?!([^\n\r]*?[\'\"]))(\s*<!--.*-->)(?!(<\/div>))[^\n\r]*?.*/","$2$4", $string);
     $string = preg_replace("/([\n\r][^\n\r\*\,\"\']*?)(?=([^\*\,\:\;a-zA-Z\"]*?))(\/)(\/)+(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";)))).*/", "$1", $string);
     $string = preg_replace("/(?!([^\n\r]*?[\'\"]))(\s*<!--.*-->)(?!(<\/div>))[^\n\r]*?(\*\/)?.*/","", $string);
+    $string = preg_replace("/(<!--.*?-->)(?=(\s*<\/div>))/","", $string);
     $string = preg_replace("/qDdXX/", "//", $string); 
     $string = preg_replace("/pDdYX/", "/*", $string); 
     $string = preg_replace("/ODdPK/", "*/", $string);  
